@@ -84,8 +84,7 @@ const FloatingChatbot = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization:
-              "Bearer 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",
+            Authorization: `Bearer ${import.meta.env.VITE_OPENROUTER_API_KEY}`,
             "HTTP-Referer": window.location.origin,
             "X-Title": "RenoLoop Assistant",
           },

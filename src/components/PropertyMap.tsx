@@ -14,7 +14,7 @@ export const PropertyMap: React.FC<{ property: Property }> = ({ property }) => {
     property.address + "," + property.city + "," + property.country
   )}&zoom=15&size=800x300&maptype=roadmap&markers=color:orange%7C${encodeURIComponent(
     property.address + "," + property.city + "," + property.country
-  )}&key=AIzaSyAS-uGZnG1Ix0wf1qLwzn4hF2livGHB7hU`;
+  )}&key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}`;
 
   return (
     <div className="relative h-[300px] bg-slate-800">
