@@ -2,8 +2,6 @@
 
 RenoLoop is a platform that connects property owners with renovation funding and future tenants in Marseille, France. The platform aims to transform deteriorating buildings into homes through a unique process, addressing the housing crisis while revitalizing urban spaces.
 
-![RenoLoop Logo](src/assets/images/logo.png)
-
 ## 🏠 Project Overview
 
 Marseille faces a significant housing challenge:
