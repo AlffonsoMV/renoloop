@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthStore } from './store/authStore';
 import FloatingCTA from './components/FloatingCTA';
-import FloatingChatbot from './components/FloatingChatbot';
-import { Analytics } from "@vercel/analytics/react";
+import FloatingChatbot from "./components/FloatingChatbot";
 
 // Pages
 import Home from './pages/Home';
@@ -47,7 +46,6 @@ function App() {
           }
         />
         <Route path="*" element={<Navigate to="/" />} />
-        <Analytics />
       </Routes>
     </Router>
   );
