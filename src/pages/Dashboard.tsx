@@ -18,7 +18,13 @@ import Reports from './Reports';
 import { useAuthStore } from '../store/authStore';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
-import { propertyService, applicationService, Property, Application } from '../services/supabaseService';
+import logo from "../assets/images/logo.png";
+import {
+  propertyService,
+  applicationService,
+  Property,
+  Application,
+} from "../services/supabaseService";
 
 const Dashboard = () => {
   const { user, isAuthenticated, logout } = useAuthStore();
@@ -26,21 +32,21 @@ const Dashboard = () => {
   const [error, setError] = useState<string | null>(null);
   const [properties, setProperties] = useState<Property[]>([]);
   const [applications, setApplications] = useState<Application[]>([]);
-  
+
   // Fetch dashboard data
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       setError(null);
-      
+
       try {
         // Fetch data based on user role
-        if (user?.role === 'property-owner') {
+        if (user?.role === "property-owner") {
           const [propertiesData, applicationsData] = await Promise.all([
             propertyService.getMyProperties(),
             applicationService.getApplicationsForMyProperties(),
           ]);
-          
+
           setProperties(propertiesData);
           setApplications(applicationsData);
         } else {
@@ -48,29 +54,29 @@ const Dashboard = () => {
             propertyService.getAvailableProperties(),
             applicationService.getMyApplications(),
           ]);
-          
+
           setProperties(availableProperties);
           setApplications(myApplications);
         }
       } catch (err) {
-        setError('Failed to load dashboard data. Please try again.');
-        console.error('Dashboard data fetch error:', err);
+        setError("Failed to load dashboard data. Please try again.");
+        console.error("Dashboard data fetch error:", err);
       } finally {
         setIsLoading(false);
       }
     };
-    
+
     fetchData();
   }, [user?.role]);
-  
+
   const handleLogout = async () => {
     try {
       await logout();
     } catch (err) {
-      console.error('Logout error:', err);
+      console.error("Logout error:", err);
     }
   };
-  
+
   return !isAuthenticated ? (
     <Navigate to="/login" />
   ) : (
@@ -99,7 +105,7 @@ const Dashboard = () => {
         <div className="p-6">
           <div className="flex items-center space-x-3 mb-8">
             <div className="p-2 rounded-xl">
-              <img src="/src/assets/images/logo.png" alt="Logo" width="40" />
+              <img src={logo} alt="Logo" width="50" />
             </div>
             <span
               className="text-lg font-bold text-white tracking-tight"
