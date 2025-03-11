@@ -32,21 +32,30 @@ const Navbar = () => {
   }, [location]);
   
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'py-2' : 'py-4'}`}>
-      <div className={`absolute inset-0 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-slate-900/95 backdrop-blur-xl shadow-lg' 
-          : 'bg-slate-900/80 backdrop-blur-lg'
-      } border-b border-white/10`} />
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled ? "py-2" : "py-4"
+      }`}
+    >
+      <div
+        className={`absolute inset-0 transition-all duration-300 ${
+          isScrolled
+            ? "bg-slate-900/95 backdrop-blur-xl shadow-lg"
+            : "bg-slate-900/80 backdrop-blur-lg"
+        } border-b border-white/10`}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-3">
             <Link to="/" className="flex items-center space-x-3">
-              <div className="p-2 rounded-xl">
-                <img src={logo} alt="Logo" width="30" />
+              <div className="rounded-xl">
+                <img src={logo} alt="Logo" width="50" />
               </div>
-              <span className="text-2xl font-bold text-white tracking-tight">
-                RenoLoop
+              <span
+                className="text-2xl font-bold text-white tracking-tight"
+                style={{ fontFamily: "TAN Headline" }}
+              >
+                RENOLOOP
               </span>
             </Link>
           </div>
@@ -55,9 +64,9 @@ const Navbar = () => {
             <a
               href="#about"
               className={`relative font-medium transition-colors duration-300 ${
-                location.hash === '#about' 
-                  ? 'text-white after:w-full' 
-                  : 'text-slate-400 hover:text-white after:w-0 hover:after:w-full'
+                location.hash === "#about"
+                  ? "text-white after:w-full"
+                  : "text-slate-400 hover:text-white after:w-0 hover:after:w-full"
               } after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300`}
             >
               About
@@ -65,9 +74,9 @@ const Navbar = () => {
             <a
               href="#process"
               className={`relative font-medium transition-colors duration-300 ${
-                location.hash === '#process' 
-                  ? 'text-white after:w-full' 
-                  : 'text-slate-400 hover:text-white after:w-0 hover:after:w-full'
+                location.hash === "#process"
+                  ? "text-white after:w-full"
+                  : "text-slate-400 hover:text-white after:w-0 hover:after:w-full"
               } after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300`}
             >
               Process
@@ -75,9 +84,9 @@ const Navbar = () => {
             <a
               href="#impact"
               className={`relative font-medium transition-colors duration-300 ${
-                location.hash === '#impact' 
-                  ? 'text-white after:w-full' 
-                  : 'text-slate-400 hover:text-white after:w-0 hover:after:w-full'
+                location.hash === "#impact"
+                  ? "text-white after:w-full"
+                  : "text-slate-400 hover:text-white after:w-0 hover:after:w-full"
               } after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300`}
             >
               Impact
@@ -85,9 +94,9 @@ const Navbar = () => {
             <a
               href="#contact"
               className={`relative font-medium transition-colors duration-300 ${
-                location.hash === '#contact' 
-                  ? 'text-white after:w-full' 
-                  : 'text-slate-400 hover:text-white after:w-0 hover:after:w-full'
+                location.hash === "#contact"
+                  ? "text-white after:w-full"
+                  : "text-slate-400 hover:text-white after:w-0 hover:after:w-full"
               } after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300`}
             >
               Contact
@@ -102,11 +111,13 @@ const Navbar = () => {
                     <div className="bg-orange-500 h-8 w-8 rounded-full flex items-center justify-center text-white font-medium">
                       {user.name.charAt(0)}
                     </div>
-                    <span className="ml-2 text-white hidden lg:inline">{user.name}</span>
+                    <span className="ml-2 text-white hidden lg:inline">
+                      {user.name}
+                    </span>
                   </div>
                 )}
-                <Link 
-                  to="/dashboard" 
+                <Link
+                  to="/dashboard"
                   className="relative overflow-hidden group bg-gradient-to-r from-orange-500 to-amber-500 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/25 border border-transparent"
                 >
                   <span className="relative z-10">Dashboard</span>
@@ -115,14 +126,14 @@ const Navbar = () => {
               </div>
             ) : (
               <div className="flex items-center space-x-4">
-                <Link 
-                  to="/login" 
+                <Link
+                  to="/login"
                   className="relative text-white font-medium transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-orange-500 hover:after:w-full after:transition-all after:duration-300"
                 >
                   Sign In
                 </Link>
-                <Link 
-                  to="/register" 
+                <Link
+                  to="/register"
                   className="relative overflow-hidden group bg-white/10 backdrop-blur-lg text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 border border-white/10"
                 >
                   <span className="relative z-10">Create Account</span>
@@ -130,7 +141,7 @@ const Navbar = () => {
                 </Link>
               </div>
             )}
-            
+
             {/* Mobile menu button */}
             <div className="md:hidden ml-4">
               <button
@@ -147,7 +158,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-slate-900/95 backdrop-blur-xl border-b border-white/10 py-4 px-4 shadow-lg">
@@ -155,9 +166,9 @@ const Navbar = () => {
             <a
               href="#about"
               className={`py-2 px-3 rounded-lg transition-colors ${
-                location.hash === '#about' 
-                  ? 'bg-orange-500/20 text-white' 
-                  : 'text-slate-400 hover:bg-white/5 hover:text-white'
+                location.hash === "#about"
+                  ? "bg-orange-500/20 text-white"
+                  : "text-slate-400 hover:bg-white/5 hover:text-white"
               }`}
             >
               About
@@ -165,9 +176,9 @@ const Navbar = () => {
             <a
               href="#process"
               className={`py-2 px-3 rounded-lg transition-colors ${
-                location.hash === '#process' 
-                  ? 'bg-orange-500/20 text-white' 
-                  : 'text-slate-400 hover:bg-white/5 hover:text-white'
+                location.hash === "#process"
+                  ? "bg-orange-500/20 text-white"
+                  : "text-slate-400 hover:bg-white/5 hover:text-white"
               }`}
             >
               Process
@@ -175,9 +186,9 @@ const Navbar = () => {
             <a
               href="#impact"
               className={`py-2 px-3 rounded-lg transition-colors ${
-                location.hash === '#impact' 
-                  ? 'bg-orange-500/20 text-white' 
-                  : 'text-slate-400 hover:bg-white/5 hover:text-white'
+                location.hash === "#impact"
+                  ? "bg-orange-500/20 text-white"
+                  : "text-slate-400 hover:bg-white/5 hover:text-white"
               }`}
             >
               Impact
@@ -185,14 +196,14 @@ const Navbar = () => {
             <a
               href="#contact"
               className={`py-2 px-3 rounded-lg transition-colors ${
-                location.hash === '#contact' 
-                  ? 'bg-orange-500/20 text-white' 
-                  : 'text-slate-400 hover:bg-white/5 hover:text-white'
+                location.hash === "#contact"
+                  ? "bg-orange-500/20 text-white"
+                  : "text-slate-400 hover:bg-white/5 hover:text-white"
               }`}
             >
               Contact
             </a>
-            
+
             {isAuthenticated && (
               <div className="pt-2 border-t border-white/10">
                 <div className="flex items-center space-x-3 py-2">

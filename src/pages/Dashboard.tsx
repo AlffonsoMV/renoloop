@@ -99,10 +99,13 @@ const Dashboard = () => {
         <div className="p-6">
           <div className="flex items-center space-x-3 mb-8">
             <div className="p-2 rounded-xl">
-              <img src="/src/assets/images/logo.png" alt="Logo" width="30" />
+              <img src="/src/assets/images/logo.png" alt="Logo" width="40" />
             </div>
-            <span className="text-2xl font-bold text-white tracking-tight">
-              RenoLoop
+            <span
+              className="text-lg font-bold text-white tracking-tight"
+              style={{ fontFamily: "TAN Headline" }}
+            >
+              RENOLOOP
             </span>
           </div>
 
